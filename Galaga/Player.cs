@@ -1,5 +1,6 @@
 using DIKUArcade.Entities;
 using DIKUArcade.Graphics;
+using DIKUArcade.Math;
 
 namespace Galaga;
 public class Player {
@@ -11,7 +12,6 @@ public class Player {
     private void UpdateDirection() {
         shape.Direction.X = moveLeft + moveRight;
     }
-    // TODO: Add private fields
 
     public Player(DynamicShape shape, IBaseImage image) {
         entity = new Entity(shape, image);
@@ -20,14 +20,12 @@ public class Player {
 
     public void Render() {
         entity.RenderEntity();
-        // TODO: render the player entity
     }
 
     public void Move() {
         shape.Position.X = shape.Position.X < 0.0f ? 0.0f : shape.Position.X;
         shape.Position.X = shape.Position.X > 1.0 - shape.Extent.X ? 1.0f - shape.Extent.X : shape.Position.X;
         shape.Move();
-        // TODO: move the shape and guard against the window borders*/
     }
 
     public void SetMoveLeft(bool val) {
@@ -37,7 +35,6 @@ public class Player {
             moveLeft = 0.0f;
         }
         UpdateDirection();
-        // TODO:set moveLeft appropriately and call UpdateDirection()
     }
 
     public void SetMoveRight(bool val) {
@@ -47,7 +44,11 @@ public class Player {
             moveRight = 0.0f;
         }
         UpdateDirection();
-        // TODO:set moveRight appropriately and call UpdateDirection()
+    }
+
+    public Vec2F GetPosition() {
+        //How do i find the middle of this thing?
+        return entity.Shape.Position;
     }
 
 }
