@@ -47,6 +47,7 @@ public class Player {
     }
 
     public Vec2F GetPosition() {
+        //How do i find the middle of this thing?
         return entity.Shape.Position;
     }
 
