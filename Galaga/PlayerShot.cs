@@ -11,7 +11,7 @@ public class PlayerShot : Entity {
 
     }
 
-    public override void Move() {
-        base.Move(direction);
+    public void Move() {
+        base.Shape.Move(direction);
     }
 }
