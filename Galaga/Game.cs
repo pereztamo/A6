@@ -73,8 +73,9 @@ public class Game : DIKUGame, IGameEventProcessor {
                 player.SetMoveRight(true);
                 break;
             case KeyboardKey.Space:
-                PlayerShot playerShot = new PlayerShot(player.GetPosition(), playerShotImage);
-                playerShots.AddEntity(playerShot);
+                playerShots.AddEntity(
+                    new PlayerShot(player.GetPosition(), 
+                    playerShotImage));
                 break;
         }
         // TODO: Close window if escape is pressed
@@ -109,7 +110,7 @@ public class Game : DIKUGame, IGameEventProcessor {
     private void IterateShots() {
         playerShots.Iterate(shot => {
             shot.Move();
-            if (shot.Shape.Position.X > 1.0f) {
+            if (shot.Shape.Position.X >= 1.0f) {
                 shot.DeleteEntity();
             } else {
                 enemies.Iterate(enemy => {
