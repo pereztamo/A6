@@ -47,8 +47,10 @@ public class Player {
     }
 
     public Vec2F GetPosition() {
-        //How do i find the middle of this thing?
-        return entity.Shape.Position;
+        //remove .003 from x since the player sprite does not fill out the entire shape
+        float newX = entity.Shape.Position.X + ((entity.Shape.Extent.X/2.0f) - 0.003f) ;
+        float newY = entity.Shape.Position.Y - (entity.Shape.Extent.Y/2.0f);
+        return new Vec2F(newX, newY);
     }
 
 }

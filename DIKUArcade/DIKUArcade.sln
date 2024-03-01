@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestDIKUArcade", "TestDIKUA
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DIKUArcadeUnitTests", "DIKUArcadeUnitTests\DIKUArcadeUnitTests.csproj", "{E55A1C5E-00CC-4916-BB81-241D87A739D0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Galaga", "..\Galaga\Galaga.csproj", "{6b9f1cc7-e526-4f99-8384-92d53829edfc}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

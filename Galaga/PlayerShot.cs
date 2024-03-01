@@ -12,6 +12,6 @@ public class PlayerShot : Entity {
     }
 
     public void Move() {
-        base.Shape.Move(direction);
+        Shape.Move(direction);
     }
 }
