@@ -11,6 +11,12 @@ public class PlayerShot : Entity {
 
     }
 
+    //According to the deliverable this method should exist, 
+    //but was never mentioned in the actual assignment text so it just exists and is unused
+    public void Render() {
+        RenderEntity();
+    }
+
     public void Move() {
         Shape.Move(direction);
     }
