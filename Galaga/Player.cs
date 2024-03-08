@@ -8,7 +8,7 @@ public class Player {
     private DynamicShape shape;
     private float moveLeft = 0.0f;
     private float moveRight = 0.0f;
-    public const float MOVEMENT_SPEED = 0.05f;
+    public const float MOVEMENT_SPEED = 0.01f;
     private void UpdateDirection() {
         shape.Direction.X = moveLeft + moveRight;
     }
