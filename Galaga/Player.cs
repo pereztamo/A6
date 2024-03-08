@@ -8,7 +8,7 @@ public class Player {
     private DynamicShape shape;
     private float moveLeft = 0.0f;
     private float moveRight = 0.0f;
-    public const float MOVEMENT_SPEED = 0.01f;
+    public const float MOVEMENT_SPEED = 0.05f;
     private void UpdateDirection() {
         shape.Direction.X = moveLeft + moveRight;
     }
@@ -23,9 +23,9 @@ public class Player {
     }
 
     public void Move() {
-        shape.Position.X = shape.Position.X < 0.0f ? 0.0f : shape.Position.X;
-        shape.Position.X = shape.Position.X > 1.0 - shape.Extent.X ? 1.0f - shape.Extent.X : shape.Position.X;
         shape.Move();
+        shape.Position.X = shape.Position.X < 0.0f ? 0.0f : shape.Position.X;
+        shape.Position.X = shape.Position.X > 1.0f - shape.Extent.X ? 1.0f - shape.Extent.X : shape.Position.X;
     }
 
     public void SetMoveLeft(bool val) {
