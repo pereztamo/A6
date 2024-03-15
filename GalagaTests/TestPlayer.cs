@@ -8,6 +8,7 @@ using DIKUArcade.Entities;
 using DIKUArcade.Graphics;
 using DIKUArcade.GUI;
 using DIKUArcade;
+using DIKUArcade.Events;
 
 
 public class TestsPlayer{
@@ -26,7 +27,12 @@ public class TestsPlayer{
 
     [Test]
     public void TestMoveRight() {
-        player.SetMoveRight(true);
+        player.ProcessEvent(
+            new GameEvent {
+                EventType = GameEventType.MovementEvent, 
+                Message = "MoveRight"
+            });
+
         player.Move();
         Vec2F newPosition = player.GetPosition();
         Assert.That(newPosition.X, Is.EqualTo(startingPosition.X + Player.MOVEMENT_SPEED).Within(1).Ulps);
@@ -34,7 +40,11 @@ public class TestsPlayer{
 
     [Test]
     public void TestMoveLeft() {
-        player.SetMoveLeft(true);
+        player.ProcessEvent(
+            new GameEvent {
+                EventType = GameEventType.MovementEvent, 
+                Message = "MoveLeft"
+            });
         player.Move();
         Vec2F newPosition = player.GetPosition();
         Assert.That(newPosition.X, Is.EqualTo(startingPosition.X - Player.MOVEMENT_SPEED).Within(1).Ulps);
@@ -49,8 +59,16 @@ public class TestsPlayer{
 
     [Test]
     public void TestMoveEquilibrium() {
-        player.SetMoveRight(true);
-        player.SetMoveLeft(true);
+        player.ProcessEvent(
+            new GameEvent {
+                EventType = GameEventType.MovementEvent, 
+                Message = "MoveRight"
+            });
+        player.ProcessEvent(
+            new GameEvent {
+                EventType = GameEventType.MovementEvent, 
+                Message = "MoveLeft"
+            });
         player.Move();
         Vec2F newPosition = player.GetPosition();
         Assert.That(newPosition.X, Is.EqualTo(startingPosition.X).Within(1).Ulps);
